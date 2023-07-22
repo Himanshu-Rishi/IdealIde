@@ -26,7 +26,7 @@ app.post('/', async(req, res)=>
     {
         res.status(400).json({success: false, error: "Code is empty..!"})
     }
-    let job;
+    let job
     try {
       // generate file
       const filePath = await generateFile(language, code);
@@ -51,10 +51,10 @@ app.post('/', async(req, res)=>
       await job.save();
       return res.status(200).json({jobId, filePath, output });
     } catch (error) {
-      job["completedAt"] = new Date();
-      job["status"] = "error";
-      job["output"] = JSON.stringify(error);
-      await job.save();
+      const completedAt = new Date();
+      const status = "error";
+      const output = JSON.stringify(eroor);
+      job = new Job({completedAt, status, output}).save();
       res.status(500).json({error})
     }
 })
