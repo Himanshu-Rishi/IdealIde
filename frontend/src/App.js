@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import moment from 'moment';
-import stubs from "./stubs"
+import moment from "moment";
+import stubs from "./stubs";
+import CodeEditor from "@uiw/react-textarea-code-editor";
 const App = () => {
   const [code, setCode] = useState("");
   const [output, setOutput] = useState("");
@@ -86,6 +87,7 @@ const App = () => {
   };
 
 
+
   return (
     <div>
       <div>
@@ -106,16 +108,18 @@ const App = () => {
           <option value="py">Python</option>
         </select>
       </div>
-      <textarea
-        name="code"
-        id="input_code"
-        cols="100"
-        rows="30"
+
+      <CodeEditor
+        data-color-mode="dark"
         value={code}
-        onChange={(e) => {
-          setCode(e.target.value);
+        language={language}
+        onChange={(e) => setCode(e.target.value)}
+        style={{
+          fontSize: "1rem",
+          fontWeight: "400",
+          minHeight: "20vh",
         }}
-      ></textarea>
+      />
       <button type="submit" onClick={handleSubmit}>
         Submit
       </button>
