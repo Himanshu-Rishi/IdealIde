@@ -1,0 +1,32 @@
+.navbar__section
+{
+    background-color: var(--first-color);
+    color: var(--input-color);
+}
+
+.nav__items
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav__item
+{
+    margin: .75rem 3rem;
+    font-size: 1.3rem;
+}
+.pseudo_border {
+    position:relative;
+    display:inline-block;
+}
+.pseudo_border:after {
+    content:'';
+    position:absolute;
+    left:0; right:0;
+    top:100%;
+    margin:1px 0;
+    width:55px;
+    height:4px;
+    background:rgb(134, 134, 134);
+}
